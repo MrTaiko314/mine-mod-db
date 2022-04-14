@@ -14,3 +14,6 @@ python_version = "3.10"
 
 [scripts]
 main = "python -m minemoddb"
+test = "python -m unittest -v"
+check = "python -m mypy ."
+lint = "python -m flake8"
