@@ -4,7 +4,7 @@ from minemoddb.models.mod import Mod
 from minemoddb.database.database import Database
 
 
-class ModDatabase(Database):
+class ModDatabase(Database[Mod]):
     def add_mod(self, mod: Mod) -> int:
         self._entries[self._index] = copy.copy(mod)
         self._index_increment()

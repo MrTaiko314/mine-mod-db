@@ -5,7 +5,7 @@ from minemoddb.models.mod import Mod
 from minemoddb.models.modpack import Modpack
 
 
-class ModpackDatabase(Database):
+class ModpackDatabase(Database[Modpack]):
     def add_modpack(self, modpack: Modpack) -> int:
         self._entries[self._index] = copy.copy(modpack)
         self._index_increment()

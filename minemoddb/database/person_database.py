@@ -3,7 +3,7 @@ from minemoddb.database.database import Database
 from minemoddb.models.person import Person
 
 
-class PersonDatabase(Database):
+class PersonDatabase(Database[Person]):
     def add_person(self, person: Person) -> int:
         self._entries[self._index] = copy.copy(person)
         self._index_increment()
