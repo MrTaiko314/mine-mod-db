@@ -1,7 +1,6 @@
 import copy
 
 from minemoddb.database.database import Database
-from minemoddb.models.mod import Mod
 from minemoddb.models.modpack import Modpack
 
 
@@ -26,5 +25,5 @@ class ModpackDatabase(Database[Modpack]):
                 return key
         return -1
 
-    def modify_modpack(self, modpack_id: int, modpack: Mod) -> None:
+    def modify_modpack(self, modpack_id: int, modpack: Modpack) -> None:
         self._entries[modpack_id] = copy.copy(modpack)
