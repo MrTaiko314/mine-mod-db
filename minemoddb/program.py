@@ -2,7 +2,10 @@ from minemoddb.database.person_database import PersonDatabase
 from minemoddb.database.mod_database import ModDatabase
 from minemoddb.database.modpack_database import ModpackDatabase
 import minemoddb.cli.screen as screen
-from minemoddb.utils import clear_screen
+from minemoddb.models.person import Person
+from minemoddb.models.mod import Mod
+from minemoddb.models.modpack import Modpack
+from minemoddb.utils import clear_screen, get_number
 
 
 class Program:
@@ -30,3 +33,33 @@ class Program:
                 break
             else:
                 self._previous_screen = None
+
+    def get_person(self, prompt: str) -> Person:
+        entries = self._person_database.entries
+        print(f"Pessoas ({len(entries)}):")
+        sorted_person_list = sorted(entries.values(), key=lambda x: x.name)
+        for i, person in enumerate(sorted_person_list, 1):
+            print(f"{i:3}. {person.name}")
+        selected_number = get_number(
+            prompt=prompt, min_value=1, max_value=len(entries))
+        return sorted_person_list[selected_number - 1]
+
+    def get_mod(self, prompt: str) -> Mod:
+        entries = self._mod_database.entries
+        print(f"Mods ({len(entries)}):")
+        sorted_mod_list = sorted(entries.values(), key=lambda x: x.name)
+        for i, mod in enumerate(sorted_mod_list, 1):
+            print(f"{i:3}. {mod.name} de {mod.owner.name}")
+        selected_number = get_number(
+            prompt=prompt, min_value=1, max_value=len(entries))
+        return sorted_mod_list[selected_number - 1]
+
+    def get_modpack(self, prompt: str) -> Modpack:
+        entries = self._modpack_database.entries
+        print(f"Modpacks ({len(entries)}):")
+        sorted_modpack_list = sorted(entries.values(), key=lambda x: x.name)
+        for i, modpack in enumerate(sorted_modpack_list, 1):
+            print(f"{i:3}. {modpack.name} de {modpack.owner.name}")
+        selected_number = get_number(
+            prompt=prompt, min_value=1, max_value=len(entries))
+        return sorted_modpack_list[selected_number - 1]
