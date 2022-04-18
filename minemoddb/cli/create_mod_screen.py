@@ -11,7 +11,7 @@ class CreateModScreen(Screen):
     def show(self) -> None:
         print('Cadastro de mod'.upper())
 
-        mod_name = input('Nome> ')
+        mod_name = input('Nome do mod> ')
         mod_owner = self._program.get_person('Dono do mod> ')
         mod = Mod(mod_name, mod_owner)
         self._program._mod_database.add_mod(mod)
