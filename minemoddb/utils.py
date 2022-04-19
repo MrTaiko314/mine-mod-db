@@ -32,5 +32,30 @@ def get_number(
             return number
 
 
+def get_numbers(
+        prompt: str, min_value: int | None = None,
+        max_value: int | None = None, separator: str = ',') -> list[int]:
+    while True:
+        numbers_string_list = input(prompt).split(separator)
+        try:
+            numbers = [int(number) for number in numbers_string_list]
+        except ValueError:
+            print(f"Digite somente números separados por {separator}")
+        else:
+            if (min_value is not None
+                    and any(number < min_value for number in numbers)):
+                print(f"Todos os números devem ser maiores ou iguais que "
+                      f"{min_value}")
+                continue
+
+            if (max_value is not None
+                    and any(number > max_value for number in numbers)):
+                print(f"Todos os números devem ser menores ou iguais que "
+                      f"{max_value}")
+                continue
+
+            return numbers
+
+
 def clear_screen() -> None:
     print('\x1b[1;1H\x1b[0J', end='')
