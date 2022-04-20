@@ -11,10 +11,12 @@ class ModInfoScreen(Screen):
         self._mod = mod
 
     def show(self) -> None:
-        print('Mod'.upper())
+        print('Mod\n'.upper())
 
         print(f"Nome: {self._mod.name}")
         print(f"Dono: {self._mod.owner.name}")
+
+        print('')
         options = ['Voltar']
         option = get_option(options)
         if option == 'Voltar':

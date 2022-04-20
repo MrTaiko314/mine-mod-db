@@ -10,7 +10,7 @@ class MainMenuScreen(Screen):
         self._program = program
 
     def show(self) -> None:
-        print('Menu principal'.upper())
+        print('Menu principal\n'.upper())
 
         options = ['Tabelas', 'Sair']
         option = get_option(options)

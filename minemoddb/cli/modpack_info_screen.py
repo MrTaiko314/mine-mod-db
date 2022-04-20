@@ -11,8 +11,7 @@ class ModpackInfoScreen(Screen):
         self._modpack = modpack
 
     def show(self) -> None:
-        print('Modpack'.upper())
-        print('')
+        print('Modpack\n'.upper())
 
         print(f"Nome: {self._modpack.name}")
         print(f"Dono: {self._modpack.owner.name}")
@@ -20,8 +19,8 @@ class ModpackInfoScreen(Screen):
         sorted_mods = sorted(self._modpack.mods, key=lambda mod: mod.name)
         for mod in sorted_mods:
             print(f"- {mod.name} de {mod.owner.name}")
-        print('')
 
+        print('')
         options = ['Voltar']
         option = get_option(options)
         if option == 'Voltar':

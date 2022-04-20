@@ -12,9 +12,11 @@ class PersonInfoScreen(Screen):
         self._person = person
 
     def show(self) -> None:
-        print('Pessoa'.upper())
+        print('Pessoa\n'.upper())
 
         print(f"Nome: {self._person.name}")
+
+        print('')
         options = ['Editar', 'Voltar']
         option = get_option(options)
         if option == 'Editar':

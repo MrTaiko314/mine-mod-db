@@ -9,12 +9,13 @@ class SelectPersonScreen(Screen):
         self._program = program
 
     def show(self) -> None:
-        print('Seleção de pessoa'.upper())
+        print('Seleção de pessoa\n'.upper())
 
         entries = self._program._person_database.entries
         if len(entries) == 0:
             print('Nenhuma pessoa encontrada.')
-            input('Pressione enter para voltar...')
+
+            input('\nPressione enter para voltar...')
             self._program.set_screen(
                 person_table_menu_screen.PersonTableMenuScreen(self._program))
             return

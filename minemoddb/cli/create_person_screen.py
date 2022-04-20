@@ -9,12 +9,14 @@ class CreatePersonScreen(Screen):
         self._program = program
 
     def show(self) -> None:
-        print('Cadastro de pessoa'.upper())
+        print('Cadastro de pessoa\n'.upper())
 
         person_name = input('Nome> ')
         person = Person(person_name)
         self._program._person_database.add_person(person)
-        print('Pessoa cadastrada com sucesso.')
-        input('Pressione enter para voltar...')
+
+        print('\nPessoa cadastrada com sucesso.')
+
+        input('\nPressione enter para voltar...')
         self._program.set_screen(
             person_table_menu_screen.PersonTableMenuScreen(self._program))

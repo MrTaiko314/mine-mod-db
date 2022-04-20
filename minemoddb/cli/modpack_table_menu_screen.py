@@ -11,7 +11,7 @@ class ModpackTableMenuScreen(Screen):
         self._program = program
 
     def show(self) -> None:
-        print('Modpacks'.upper())
+        print('Modpacks\n'.upper())
 
         options = [
             'Ver/atualizar modpacks', 'Cadastrar modpack', 'Voltar'

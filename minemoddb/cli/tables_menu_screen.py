@@ -12,7 +12,7 @@ class TablesMenuScreen(Screen):
         self._program = program
 
     def show(self) -> None:
-        print('Tabelas'.upper())
+        print('Tabelas\n'.upper())
 
         options = ['Pessoas', 'Mods', 'Modpacks', 'Voltar']
         option = get_option(options)

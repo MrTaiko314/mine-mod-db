@@ -10,14 +10,16 @@ class EditPersonScreen(Screen):
         self._person = person
 
     def show(self) -> None:
-        print('Editar pessoa'.upper())
+        print('Editar pessoa\n'.upper())
 
         edited_name = self._get_edited_name()
         edited_person = Person(edited_name)
         person_id = self._program._person_database.get_person_id(self._person)
         self._program._person_database.modify_person(person_id, edited_person)
-        print('Pessoa editada com sucesso.')
-        input('Pressione enter para voltar...')
+
+        print('\nPessoa editada com sucesso.')
+
+        input('\nPressione enter para voltar...')
         self._program.set_screen(
             person_info_screen.PersonInfoScreen(self._program, edited_person))
 

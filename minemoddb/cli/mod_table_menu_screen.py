@@ -11,7 +11,7 @@ class ModTableMenuScreen(Screen):
         self._program = program
 
     def show(self) -> None:
-        print('Mods'.upper())
+        print('Mods\n'.upper())
 
         options = [
             'Ver/atualizar mod', 'Cadastrar mod', 'Voltar'

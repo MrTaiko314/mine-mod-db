@@ -11,7 +11,7 @@ class PersonTableMenuScreen(Screen):
         self._program = program
 
     def show(self) -> None:
-        print('Pessoas'.upper())
+        print('Pessoas\n'.upper())
 
         options = [
             'Ver/atualizar pessoa', 'Cadastrar pessoa', 'Voltar'
