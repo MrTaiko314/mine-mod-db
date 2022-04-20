@@ -11,11 +11,19 @@ class CreateModScreen(Screen):
     def show(self) -> None:
         print('Cadastro de mod'.upper())
 
+        if len(self._program._person_database.entries) == 0:
+            print('Não existe nenhum usuário cadastrado!')
+            self._return_to_previous_screen()
+            return
+
         mod_name = input('Nome do mod> ')
         mod_owner = self._program.get_person('Dono do mod> ')
         mod = Mod(mod_name, mod_owner)
         self._program._mod_database.add_mod(mod)
         print('Mod cadastrado com sucesso.')
+        self._return_to_previous_screen()
+
+    def _return_to_previous_screen(self) -> None:
         input('Pressione enter para voltar...')
         self._program.set_screen(
             mod_table_menu_screen.ModTableMenuScreen(self._program))
