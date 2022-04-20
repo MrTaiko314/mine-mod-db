@@ -1,7 +1,6 @@
 from minemoddb.models.mod import Mod
 from minemoddb.program import Program
 from minemoddb.cli.screen import Screen
-# from minemoddb.ui.edit_mod_screen import EditPersonScreen
 import minemoddb.cli.mod_table_menu_screen as mod_table_menu_screen
 from minemoddb.utils import get_option
 
