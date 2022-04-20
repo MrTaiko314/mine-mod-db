@@ -36,6 +36,8 @@ class Program:
 
     def get_person(self, prompt: str) -> Person:
         entries = self._person_database.entries
+        if len(entries) == 0:
+            raise RuntimeError('Person database is empty')
         print(f"Pessoas ({len(entries)}):")
         sorted_person_list = sorted(entries.values(), key=lambda x: x.name)
         for i, person in enumerate(sorted_person_list, 1):
@@ -46,6 +48,8 @@ class Program:
 
     def get_mod(self, prompt: str) -> Mod:
         entries = self._mod_database.entries
+        if len(entries) == 0:
+            raise RuntimeError('Mod database is empty')
         print(f"Mods ({len(entries)}):")
         sorted_mod_list = sorted(entries.values(), key=lambda x: x.name)
         for i, mod in enumerate(sorted_mod_list, 1):
@@ -56,6 +60,8 @@ class Program:
 
     def get_modpack(self, prompt: str) -> Modpack:
         entries = self._modpack_database.entries
+        if len(entries) == 0:
+            raise RuntimeError('Modpack database is empty')
         print(f"Modpacks ({len(entries)}):")
         sorted_modpack_list = sorted(entries.values(), key=lambda x: x.name)
         for i, modpack in enumerate(sorted_modpack_list, 1):
