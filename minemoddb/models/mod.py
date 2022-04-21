@@ -4,9 +4,10 @@ from minemoddb.models.person import Person
 
 
 class Mod:
-    def __init__(self, name: str, owner: Person) -> None:
+    def __init__(self, name: str, owner: Person, id: int = -1) -> None:
         self.name = name
         self.owner = owner
+        self.id = id
 
     def __eq__(self, other: Mod) -> bool:
         return self.name == other.name and self.owner == other.owner

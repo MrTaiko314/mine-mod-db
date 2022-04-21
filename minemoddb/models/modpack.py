@@ -5,10 +5,13 @@ from minemoddb.models.person import Person
 
 
 class Modpack:
-    def __init__(self, name: str, owner: Person, mods: list[Mod]) -> None:
+    def __init__(
+            self, name: str, owner: Person, mods: list[Mod],
+            id: int = -1) -> None:
         self.name = name
         self.owner = owner
         self.mods = mods
+        self.id = id
 
     def __eq__(self, other: Modpack) -> bool:
         return (

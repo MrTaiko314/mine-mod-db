@@ -7,8 +7,9 @@ class Person:
     name: Nomes são únicos no sistema.
     """
 
-    def __init__(self, name: str) -> None:
+    def __init__(self, name: str, id: int = -1) -> None:
         self.name = name
+        self.id = id
 
     def __eq__(self, other: Person) -> bool:
         return self.name == other.name
