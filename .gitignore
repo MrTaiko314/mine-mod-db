@@ -1,2 +1,13 @@
+# Byte-compiled / optimized / DLL files
 __pycache__/
+*.py[cod]
+*$py.class
+
+# Distribution / packaging
+dist/
+
+# mypy
 .mypy_cache/
+
+# Local files (database, output etc)
+data/
