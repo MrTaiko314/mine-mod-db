@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 from minemoddb.models.person import Person
 
 
@@ -6,7 +8,7 @@ class Mod:
         self.name = name
         self.owner = owner
 
-    def __eq__(self, other) -> bool:
+    def __eq__(self, other: Mod) -> bool:
         return self.name == other.name and self.owner == other.owner
 
     def __str__(self) -> str:

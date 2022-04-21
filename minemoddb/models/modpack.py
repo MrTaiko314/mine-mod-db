@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 from minemoddb.models.mod import Mod
 from minemoddb.models.person import Person
 
@@ -8,7 +10,7 @@ class Modpack:
         self.owner = owner
         self.mods = mods
 
-    def __eq__(self, other) -> bool:
+    def __eq__(self, other: Modpack) -> bool:
         return (
             len(self.mods) == len(other.mods)
             and self.name == other.name
