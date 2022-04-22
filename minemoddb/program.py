@@ -1,6 +1,7 @@
-from minemoddb.database.person_database import PersonDatabase
-from minemoddb.database.mod_database import ModDatabase
-from minemoddb.database.modpack_database import ModpackDatabase
+from minemoddb.dao.dao_factory import DaoFactory
+from minemoddb.dao.mod_dao import ModDao
+from minemoddb.dao.modpack_dao import ModpackDao
+from minemoddb.dao.person_dao import PersonDao
 import minemoddb.cli.screen as screen
 from minemoddb.models.person import Person
 from minemoddb.models.mod import Mod
@@ -9,14 +10,22 @@ from minemoddb.utils import clear_screen, get_number, get_numbers
 
 
 class Program:
-    def __init__(
-            self, person_database: PersonDatabase, mod_database: ModDatabase,
-            modpack_database: ModpackDatabase) -> None:
+    def __init__(self, dao_factory: DaoFactory) -> None:
         self._previous_screen: screen.Screen | None = None
         self._current_screen: screen.Screen | None = None
-        self._person_database = person_database
-        self._mod_database = mod_database
-        self._modpack_database = modpack_database
+        self._dao_factory = dao_factory
+
+    @property
+    def person_dao(self) -> PersonDao:
+        return self._dao_factory.create_person_dao()
+
+    @property
+    def mod_dao(self) -> ModDao:
+        return self._dao_factory.create_mod_dao()
+
+    @property
+    def modpack_dao(self) -> ModpackDao:
+        return self._dao_factory.create_modpack_dao()
 
     def set_screen(self, screen: screen.Screen) -> None:
         self._previous_screen = self._current_screen

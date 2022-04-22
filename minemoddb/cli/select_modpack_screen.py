@@ -11,7 +11,7 @@ class SelectModpackScreen(Screen):
     def show(self) -> None:
         print('Seleção de modpack\n'.upper())
 
-        modpack_list = self._program._modpack_database.get_all()
+        modpack_list = self._program.modpack_dao.get_all()
         if len(modpack_list) == 0:
             print('Nenhum modpack encontrado.')
 

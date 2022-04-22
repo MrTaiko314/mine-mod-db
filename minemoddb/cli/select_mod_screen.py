@@ -11,7 +11,7 @@ class SelectModScreen(Screen):
     def show(self) -> None:
         print('Seleção de mod\n'.upper())
 
-        mod_list = self._program._mod_database.get_all()
+        mod_list = self._program.mod_dao.get_all()
         if len(mod_list) == 0:
             print('Nenhum mod encontrado.')
 

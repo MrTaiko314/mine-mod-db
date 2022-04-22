@@ -13,7 +13,7 @@ class CreatePersonScreen(Screen):
 
         person_name = input('Nome> ')
         person = Person(person_name)
-        self._program._person_database.add_person(person)
+        self._program.person_dao.save(person)
 
         print('\nPessoa cadastrada com sucesso.')
 

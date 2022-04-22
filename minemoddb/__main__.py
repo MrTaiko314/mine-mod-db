@@ -1,15 +1,22 @@
-from minemoddb.database.person_database import PersonDatabase
-from minemoddb.database.mod_database import ModDatabase
-from minemoddb.database.modpack_database import ModpackDatabase
+from pysondb import db
+
+from minemoddb.dao.pysondb.pysondb_dao_factory import PysonDBDaoFactory
+from minemoddb.dao.pysondb.pysondb_json_database_wrapper import \
+    PysonDBJsonDatabaseWrapper
 from minemoddb.program import Program
 from minemoddb.cli.main_menu_screen import MainMenuScreen
 
 
 def main() -> None:
-    person_database = PersonDatabase()
-    mod_database = ModDatabase()
-    modpack_database = ModpackDatabase()
-    program = Program(person_database, mod_database, modpack_database)
+    person_db = PysonDBJsonDatabaseWrapper(
+        db.JsonDatabase('data/person_table.json'))
+    mod_db = PysonDBJsonDatabaseWrapper(
+        db.JsonDatabase('data/mod_table.json'))
+    modpack_db = PysonDBJsonDatabaseWrapper(
+        db.JsonDatabase('data/modpack_table.json'))
+    dao_factory = PysonDBDaoFactory(
+        person_db=person_db, mod_db=mod_db, modpack_db=modpack_db)
+    program = Program(dao_factory=dao_factory)
     program.set_screen(MainMenuScreen(program))
     program.run()
 

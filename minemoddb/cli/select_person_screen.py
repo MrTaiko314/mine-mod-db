@@ -11,7 +11,7 @@ class SelectPersonScreen(Screen):
     def show(self) -> None:
         print('Seleção de pessoa\n'.upper())
 
-        person_list = self._program._person_database.get_all()
+        person_list = self._program.person_dao.get_all()
         if len(person_list) == 0:
             print('Nenhuma pessoa encontrada.')
 

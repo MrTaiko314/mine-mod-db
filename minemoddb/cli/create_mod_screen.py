@@ -11,7 +11,7 @@ class CreateModScreen(Screen):
     def show(self) -> None:
         print('Cadastro de mod\n'.upper())
 
-        person_list = self._program._person_database.get_all()
+        person_list = self._program.person_dao.get_all()
         if len(person_list) == 0:
             print('Não existe nenhum usuário cadastrado!')
             self._return_to_previous_screen()
@@ -21,7 +21,7 @@ class CreateModScreen(Screen):
         mod_owner = self._program.get_person(
             prompt='Dono do mod> ', person_list=person_list)
         mod = Mod(mod_name, mod_owner)
-        self._program._mod_database.add_mod(mod)
+        self._program.mod_dao.save(mod)
 
         print('\nMod cadastrado com sucesso.')
 
