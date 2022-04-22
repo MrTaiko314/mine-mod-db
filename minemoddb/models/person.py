@@ -1,6 +1,3 @@
-from __future__ import annotations
-
-
 class Person:
     """Representa uma pessoa.
 
@@ -11,7 +8,7 @@ class Person:
         self.name = name
         self.id = id
 
-    def __eq__(self, other: Person) -> bool:
+    def __eq__(self, other) -> bool:
         return self.name == other.name
 
     def __str__(self) -> str:
