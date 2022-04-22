@@ -11,19 +11,22 @@ class CreateModpackScreen(Screen):
     def show(self) -> None:
         print('Cadastro de modpack\n'.upper())
 
-        if len(self._program._person_database.entries) == 0:
+        person_list = self._program._person_database.get_all()
+        if len(person_list) == 0:
             print('Não existe nenhum usuário cadastrado!')
             self._return_to_previous_screen()
             return
 
-        if len(self._program._mod_database.entries) == 0:
+        mod_list = self._program._mod_database.get_all()
+        if len(mod_list) == 0:
             print('Não existe nenhum mod cadastrado!')
             self._return_to_previous_screen()
             return
 
         modpack_name = input('Nome do modpack> ')
-        modpack_owner = self._program.get_person('Dono do modpack> ')
-        mods = self._program.get_mods('Mods> ')
+        modpack_owner = self._program.get_person(
+            prompt='Dono do modpack> ', person_list=person_list)
+        mods = self._program.get_mods(prompt='Mods> ', mod_list=mod_list)
         modpack = Modpack(modpack_name, modpack_owner, mods)
         self._program._modpack_database.add_modpack(modpack)
 

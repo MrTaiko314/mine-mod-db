@@ -34,51 +34,47 @@ class Program:
             else:
                 self._previous_screen = None
 
-    def get_person(self, prompt: str) -> Person:
-        entries = self._person_database.entries
-        if len(entries) == 0:
-            raise RuntimeError('Person database is empty')
-        print(f"Pessoas ({len(entries)}):")
-        sorted_person_list = sorted(entries.values(), key=lambda x: x.name)
+    def get_person(self, prompt: str, person_list: list[Person]) -> Person:
+        if len(person_list) == 0:
+            raise RuntimeError('Person list is empty')
+        print(f"Pessoas ({len(person_list)}):")
+        sorted_person_list = sorted(person_list, key=lambda x: x.name)
         for i, person in enumerate(sorted_person_list, 1):
             print(f"{i:3}. {person.name}")
         selected_number = get_number(
-            prompt=prompt, min_value=1, max_value=len(entries))
+            prompt=prompt, min_value=1, max_value=len(person_list))
         return sorted_person_list[selected_number - 1]
 
-    def get_mod(self, prompt: str) -> Mod:
-        entries = self._mod_database.entries
-        if len(entries) == 0:
-            raise RuntimeError('Mod database is empty')
-        print(f"Mods ({len(entries)}):")
-        sorted_mod_list = sorted(entries.values(), key=lambda x: x.name)
+    def get_mod(self, prompt: str, mod_list: list[Mod]) -> Mod:
+        if len(mod_list) == 0:
+            raise RuntimeError('Mod list is empty')
+        print(f"Mods ({len(mod_list)}):")
+        sorted_mod_list = sorted(mod_list, key=lambda x: x.name)
         for i, mod in enumerate(sorted_mod_list, 1):
             print(f"{i:3}. {mod.name} de {mod.owner.name}")
         selected_number = get_number(
-            prompt=prompt, min_value=1, max_value=len(entries))
+            prompt=prompt, min_value=1, max_value=len(mod_list))
         return sorted_mod_list[selected_number - 1]
 
-    def get_mods(self, prompt: str) -> list[Mod]:
-        entries = self._mod_database.entries
-        if len(entries) == 0:
-            raise RuntimeError('Mod database is empty')
-        print(f"Mods ({len(entries)}):")
-        sorted_mod_list = sorted(entries.values(), key=lambda x: x.name)
+    def get_mods(self, prompt: str, mod_list: list[Mod]) -> list[Mod]:
+        if len(mod_list) == 0:
+            raise RuntimeError('Mod list is empty')
+        print(f"Mods ({len(mod_list)}):")
+        sorted_mod_list = sorted(mod_list, key=lambda x: x.name)
         for i, mod in enumerate(sorted_mod_list, 1):
             print(f"{i:3}. {mod.name} de {mod.owner.name}")
         selected_numbers = get_numbers(
-            prompt=prompt, min_value=1, max_value=len(entries), separator=',')
+            prompt=prompt, min_value=1, max_value=len(mod_list), separator=',')
         mods = [sorted_mod_list[number-1] for number in selected_numbers]
         return mods
 
-    def get_modpack(self, prompt: str) -> Modpack:
-        entries = self._modpack_database.entries
-        if len(entries) == 0:
-            raise RuntimeError('Modpack database is empty')
-        print(f"Modpacks ({len(entries)}):")
-        sorted_modpack_list = sorted(entries.values(), key=lambda x: x.name)
+    def get_modpack(self, prompt: str, modpack_list: list[Modpack]) -> Modpack:
+        if len(modpack_list) == 0:
+            raise RuntimeError('Modpack list is empty')
+        print(f"Modpacks ({len(modpack_list)}):")
+        sorted_modpack_list = sorted(modpack_list, key=lambda x: x.name)
         for i, modpack in enumerate(sorted_modpack_list, 1):
             print(f"{i:3}. {modpack.name} de {modpack.owner.name}")
         selected_number = get_number(
-            prompt=prompt, min_value=1, max_value=len(entries))
+            prompt=prompt, min_value=1, max_value=len(modpack_list))
         return sorted_modpack_list[selected_number - 1]

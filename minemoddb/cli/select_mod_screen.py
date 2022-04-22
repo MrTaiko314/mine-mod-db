@@ -11,8 +11,8 @@ class SelectModScreen(Screen):
     def show(self) -> None:
         print('Seleção de mod\n'.upper())
 
-        entries = self._program._mod_database.entries
-        if len(entries) == 0:
+        mod_list = self._program._mod_database.get_all()
+        if len(mod_list) == 0:
             print('Nenhum mod encontrado.')
 
             input('\nPressione enter para voltar...')
@@ -20,5 +20,5 @@ class SelectModScreen(Screen):
                 mod_table_menu_screen.ModTableMenuScreen(self._program))
             return
 
-        mod = self._program.get_mod('Mod> ')
+        mod = self._program.get_mod(prompt='Mod> ', mod_list=mod_list)
         self._program.set_screen(ModInfoScreen(self._program, mod))

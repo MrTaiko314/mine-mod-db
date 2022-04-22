@@ -11,8 +11,8 @@ class SelectModpackScreen(Screen):
     def show(self) -> None:
         print('Seleção de modpack\n'.upper())
 
-        entries = self._program._modpack_database.entries
-        if len(entries) == 0:
+        modpack_list = self._program._modpack_database.get_all()
+        if len(modpack_list) == 0:
             print('Nenhum modpack encontrado.')
 
             input('\nPressione para voltar...')
@@ -21,5 +21,6 @@ class SelectModpackScreen(Screen):
                 .ModpackTableMenuScreen(self._program))
             return
 
-        modpack = self._program.get_modpack('Modpack> ')
+        modpack = self._program.get_modpack(
+            prompt='Modpack> ', modpack_list=modpack_list)
         self._program.set_screen(ModpackInfoScreen(self._program, modpack))
