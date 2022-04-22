@@ -18,6 +18,10 @@ class PersonDatabase(Database[Person]):
     def get_person(self, person_id: int) -> Person:
         return copy.copy(self._entries[person_id])
 
+    def get_all(self) -> list[Person]:
+        """Retorna todas as pessoas armazenadas."""
+        return [copy.copy(person) for person in list(self._entries.values())]
+
     def remove_person(self, person: Person) -> None:
         for key, value in self._entries.items():
             if value == person:

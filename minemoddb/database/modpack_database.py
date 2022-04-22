@@ -25,5 +25,12 @@ class ModpackDatabase(Database[Modpack]):
                 return key
         return -1
 
+    def get_all(self) -> list[Modpack]:
+        """Retorna todos os modpacks armazenados."""
+        return [
+            copy.deepcopy(modpack)
+            for modpack in list(self._entries.values())
+        ]
+
     def modify_modpack(self, modpack_id: int, modpack: Modpack) -> None:
         self._entries[modpack_id] = copy.copy(modpack)

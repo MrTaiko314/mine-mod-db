@@ -19,6 +19,10 @@ class ModDatabase(Database[Mod]):
     def get_mod(self, mod_id: int) -> Mod:
         return copy.copy(self._entries[mod_id])
 
+    def get_all(self) -> list[Mod]:
+        """Retorna todos os mods armazenados."""
+        return [copy.copy(mod) for mod in list(self._entries.values())]
+
     def modify_mod(self, mod_id: int, mod: Mod) -> None:
         self._entries[mod_id] = copy.copy(mod)
 
