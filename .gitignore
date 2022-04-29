@@ -9,5 +9,8 @@ dist/
 # mypy
 .mypy_cache/
 
+# Coverage
+.coverage
+
 # Local files (database, output etc)
 data/
