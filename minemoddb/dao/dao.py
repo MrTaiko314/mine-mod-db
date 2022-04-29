@@ -6,7 +6,7 @@ T = TypeVar('T')
 
 
 class Dao(ABC, Generic[T]):
-    """Classe abstrata e genérica base para todos os DAOs.
+    """Interface genérica base para todos os DAOs.
 
     Um DAO (Objeto de Acesso aos Dados) é um objeto ou uma interface
     que fornece acesso a um banco de dados ou qualquer outro
