@@ -1,8 +1,8 @@
 from minemoddb.program import Program
 from minemoddb.cli.screen import Screen
 import minemoddb.cli.tables_menu_screen as tables_menu_screen
-from minemoddb.cli.create_person_screen import CreatePersonScreen
-from minemoddb.cli.select_person_screen import SelectPersonScreen
+from minemoddb.cli.person.create_person_screen import CreatePersonScreen
+from minemoddb.cli.person.select_person_screen import SelectPersonScreen
 from minemoddb.utils import get_option
 
 

@@ -1,8 +1,10 @@
 from minemoddb.program import Program
 import minemoddb.cli.main_menu_screen as main_menu_screen
-import minemoddb.cli.person_table_menu_screen as person_table_menu_screen
-import minemoddb.cli.mod_table_menu_screen as mod_table_menu_screen
-import minemoddb.cli.modpack_table_menu_screen as modpack_table_menu_screen
+import minemoddb.cli.person.person_table_menu_screen as \
+    person_table_menu_screen
+import minemoddb.cli.mod.mod_table_menu_screen as mod_table_menu_screen
+import minemoddb.cli.modpack.modpack_table_menu_screen as \
+    modpack_table_menu_screen
 from minemoddb.cli.screen import Screen
 from minemoddb.utils import get_option
 

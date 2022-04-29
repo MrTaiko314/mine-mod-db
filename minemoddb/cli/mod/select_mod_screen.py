@@ -1,7 +1,7 @@
 from minemoddb.program import Program
-import minemoddb.cli.mod_table_menu_screen as mod_table_menu_screen
+import minemoddb.cli.mod.mod_table_menu_screen as mod_table_menu_screen
 from minemoddb.cli.screen import Screen
-from minemoddb.cli.mod_info_screen import ModInfoScreen
+from minemoddb.cli.mod.mod_info_screen import ModInfoScreen
 
 
 class SelectModScreen(Screen):

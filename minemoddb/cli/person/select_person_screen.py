@@ -1,7 +1,8 @@
 from minemoddb.program import Program
-import minemoddb.cli.person_table_menu_screen as person_table_menu_screen
+import minemoddb.cli.person.person_table_menu_screen as \
+    person_table_menu_screen
 from minemoddb.cli.screen import Screen
-from minemoddb.cli.person_info_screen import PersonInfoScreen
+from minemoddb.cli.person.person_info_screen import PersonInfoScreen
 
 
 class SelectPersonScreen(Screen):

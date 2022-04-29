@@ -1,8 +1,8 @@
 from minemoddb.program import Program
 from minemoddb.cli.screen import Screen
 import minemoddb.cli.tables_menu_screen as tables_menu_screen
-from minemoddb.cli.create_modpack_screen import CreateModpackScreen
-from minemoddb.cli.select_modpack_screen import SelectModpackScreen
+from minemoddb.cli.modpack.create_modpack_screen import CreateModpackScreen
+from minemoddb.cli.modpack.select_modpack_screen import SelectModpackScreen
 from minemoddb.utils import get_option
 
 

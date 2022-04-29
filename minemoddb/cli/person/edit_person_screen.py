@@ -1,7 +1,7 @@
 from minemoddb.models.person import Person
 from minemoddb.program import Program
 from minemoddb.cli.screen import Screen
-import minemoddb.cli.person_info_screen as person_info_screen
+import minemoddb.cli.person.person_info_screen as person_info_screen
 
 
 class EditPersonScreen(Screen):

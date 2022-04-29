@@ -1,7 +1,8 @@
 from minemoddb.program import Program
 from minemoddb.models.modpack import Modpack
 from minemoddb.cli.screen import Screen
-import minemoddb.cli.modpack_table_menu_screen as modpack_table_menu_screen
+import minemoddb.cli.modpack.modpack_table_menu_screen as \
+    modpack_table_menu_screen
 
 
 class CreateModpackScreen(Screen):

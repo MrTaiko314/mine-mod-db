@@ -1,7 +1,8 @@
 from minemoddb.program import Program
 from minemoddb.models.person import Person
 from minemoddb.cli.screen import Screen
-import minemoddb.cli.person_table_menu_screen as person_table_menu_screen
+import minemoddb.cli.person.person_table_menu_screen as \
+    person_table_menu_screen
 
 
 class CreatePersonScreen(Screen):

@@ -1,8 +1,9 @@
 from minemoddb.models.person import Person
 from minemoddb.program import Program
 from minemoddb.cli.screen import Screen
-from minemoddb.cli.edit_person_screen import EditPersonScreen
-import minemoddb.cli.person_table_menu_screen as person_table_menu_screen
+from minemoddb.cli.person.edit_person_screen import EditPersonScreen
+import minemoddb.cli.person.person_table_menu_screen as \
+    person_table_menu_screen
 from minemoddb.utils import get_option
 
 
