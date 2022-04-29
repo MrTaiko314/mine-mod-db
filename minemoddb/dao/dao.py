@@ -1,8 +1,10 @@
 from abc import ABC, abstractmethod
 from typing import Generic, TypeVar
 
+from minemoddb.models.database_object import DatabaseObject
 
-T = TypeVar('T')
+
+T = TypeVar('T', bound=DatabaseObject)
 
 
 class Dao(ABC, Generic[T]):
