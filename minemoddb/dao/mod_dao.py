@@ -4,8 +4,8 @@ from minemoddb.dao.dao import Dao
 from minemoddb.models.mod import Mod
 
 
-class ModDao(Dao):
     """Classe abstrata base para todos os DAOs de Mod."""
+class ModDao(Dao[Mod]):
 
     @abstractmethod
     def get_by_name(self, name: str) -> list[Mod]:
