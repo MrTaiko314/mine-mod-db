@@ -1,15 +1,16 @@
+from minemoddb.models.database_object import DatabaseObject
 from minemoddb.models.mod import Mod
 from minemoddb.models.person import Person
 
 
-class Modpack:
+class Modpack(DatabaseObject):
     def __init__(
             self, name: str, owner: Person, mods: list[Mod],
             id: int = -1) -> None:
+        super().__init__(id)
         self.name = name
         self.owner = owner
         self.mods = mods
-        self.id = id
 
     def __eq__(self, other) -> bool:
         return (
